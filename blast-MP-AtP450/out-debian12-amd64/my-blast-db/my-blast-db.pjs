@@ -1,0 +1,22 @@
+{
+  "version": "1.2",
+  "dbname": "my-blast-db",
+  "dbtype": "Protein",
+  "db-version": 5,
+  "description": "my-blast-db",
+  "number-of-letters": 129482,
+  "number-of-sequences": 271,
+  "last-updated": "2025-08-21T16:31:00",
+  "number-of-volumes": 1,
+  "bytes-total": 206299,
+  "bytes-to-cache": 132018,
+  "files": [
+    "my-blast-db.pdb",
+    "my-blast-db.phr",
+    "my-blast-db.pin",
+    "my-blast-db.pot",
+    "my-blast-db.psq",
+    "my-blast-db.ptf",
+    "my-blast-db.pto"
+  ]
+}
