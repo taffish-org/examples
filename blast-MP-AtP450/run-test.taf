@@ -1,0 +1,35 @@
++FLOW:run-test
+ARGS
+  <cmd>
+    blastp
+  <in>
+    Marchantia_polymorpha.MpTak1_v7.1.pep.all.fasta
+  <dbin>
+    AtP450PROT.fasta
+  <tmpf>
+    out.blastp_matches_my-blast-db.txt
+  <thedir>
+    out-debian12-amd64
+RUN
+  <auto-flow>
+    set -e
+    echo "[Start] $(date)"
+
+    taf-blast-v2.16.0 --cmd ::cmd:: --in ::in:: --dbin ::dbin:: 
+    cd blast-out
+    cut -f 1 ::tmpf:: | sort | uniq > id.::tmpf::
+
+    echo '(Expect):'
+    echo '   34858 ::tmpf::'
+    echo '     159 id.::tmpf::'
+
+    echo '(Results):'
+    wc -l    ::tmpf::
+    wc -l id.::tmpf::
+
+    echo '(Compare):'
+    diff -s ::tmpf::    ../::thedir::/::tmpf::
+    diff -s id.::tmpf:: ../::thedir::/id.::tmpf::
+
+    echo ''
+    echo "[End] $(date)"
